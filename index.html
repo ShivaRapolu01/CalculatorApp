@@ -14,8 +14,8 @@
     <div class="calculator-container">
         <div class="heading">Calculator</div>
         <div class="display">
-            <div class="prev-op">123+</div>
-            <div class="curr-op">35</div>
+            <div data-prev-op class="prev-op"></div>
+            <div data-curr-op class="curr-op"></div>
         </div>
         <div class="calculator">
                 <button data-num class="button">7</button>
@@ -30,10 +30,10 @@
                 <button data-num class="button">2</button>
                 <button data-num class="button">3</button>
                 <button data-operation class="button">-</button>
-                <button data-operation class="button">.</button>
+                <button data-num class="button">.</button>
                 <button data-num class="button">0</button>
                 <button data-operation class="button">/</button>
-                <button data-operation class="button">x</button>
+                <button data-operation class="button">*</button>
                 <button data-reset class="button span-two special1" style="padding:15px 10px 10px;">RESET</button>
                 <button data-equals class="button span-two special2">=</button>
         </div>
@@ -45,6 +45,9 @@
   const btns=document.querySelectorAll('button');
   btns.forEach(btn=>{
       btn.addEventListener('click',(e)=>{
+          let buf=btn.style.boxShadow; 
+          btn.style.boxShadow="none";
+          btn.style.transform = "translate(0%,4%)";
           let boffsetx=e.clientX-e.target.offsetLeft; 
           let boffsety=e.clientY-e.target.offsetTop; 
           let ripples=document.createElement('span');
@@ -54,6 +57,11 @@
           setTimeout(()=>{
               ripples.remove()
           },500);
+          setTimeout(()=>{
+          btn.style.transform = "translate(0%,0%)";
+          btn.style.boxShadow=buf;
+              
+          },100);
 
       })
   })
