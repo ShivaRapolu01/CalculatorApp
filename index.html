@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"></link>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <div class="heading">Calculator</div>
+        <div class="display">
+            <div class="prev-op">123+</div>
+            <div class="curr-op">35</div>
+        </div>
+        <div class="calculator">
+                <button data-num class="button">7</button>
+                <button data-num class="button">8</button>
+                <button data-num class="button">9</button>
+                <button data-del class="button special1">Del</button>
+                <button data-num class="button">4</button>
+                <button data-num class="button">5</button>
+                <button data-num class="button">6</button>
+                <button data-operation class="button">+</button>
+                <button data-num class="button">1</button>
+                <button data-num class="button">2</button>
+                <button data-num class="button">3</button>
+                <button data-operation class="button">-</button>
+                <button data-operation class="button">.</button>
+                <button data-num class="button">0</button>
+                <button data-operation class="button">/</button>
+                <button data-operation class="button">x</button>
+                <button data-reset class="button span-two special1" style="padding:15px 10px 10px;">RESET</button>
+                <button data-equals class="button span-two special2">=</button>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+  const btns=document.querySelectorAll('button');
+  btns.forEach(btn=>{
+      btn.addEventListener('click',(e)=>{
+          let boffsetx=e.clientX-e.target.offsetLeft; 
+          let boffsety=e.clientY-e.target.offsetTop; 
+          let ripples=document.createElement('span');
+          ripples.style.left=boffsetx+'px'; 
+          ripples.style.top=boffsety+'px';
+          btn.appendChild(ripples);
+          setTimeout(()=>{
+              ripples.remove()
+          },500);
+
+      })
+  })
+</script>
+</html>
