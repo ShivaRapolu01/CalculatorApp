@@ -25,7 +25,7 @@ class Calculator{
             break;
             case '*': prev=prev*curr;
             break;
-            case '/': prev=prev/curr;
+            case '÷': prev=prev/curr;
             break;
             default:
                 return;         
@@ -36,7 +36,7 @@ class Calculator{
     }
     chooseOperation(number){
         if(this.curropText==='')return;   
-        if(this.prevopText!=='' && this.prevopText!='0/'){
+        if(this.prevopText!=='' && this.prevopText!='0÷'){
             this.compute();
         }
        this.operation=number; 
