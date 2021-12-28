@@ -48,7 +48,7 @@ class Calculator{
         // console.log("inside appendNumber");
         // console.log(this.curropText.toString());
         // console.log(number.toString());
-        if(number=='0' && this.operation=='/' && this.prevopText=='0'){console.log("hello23451");this.curropTextElement.innerText="error";this.reset();return;}
+        if(number=='0' && this.operation=='÷' && this.prevopText=='0'){window.alert("0/0 is not a number.Press reset to proceed");this.reset();return;}
         this.curropText=this.curropText.toString()+number.toString();
         // console.log( this.curropText);
     }
