@@ -8,6 +8,8 @@
 
 
 body{
+    margin:0; 
+
     display:flex; 
     justify-content: center;
     align-items: center;
@@ -15,6 +17,7 @@ body{
     min-height: 100vh;
     background-color: hsl(0, 0%, 90%);
     overflow-y: auto;
+    overflow-x: hidden;
 
 }
 
@@ -155,3 +158,16 @@ button span{
     }
 }
 
+
+@media only  screen and (max-width:500px){
+    .calculator-container{
+        height:95vh; 
+        width:90vw; 
+    }
+
+    .calculator{
+        grid-template-columns: repeat(4,4.2em);
+        grid-template-rows: repeat(4,45px);
+        gap:12px;
+    }
+}
